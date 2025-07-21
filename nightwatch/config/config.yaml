@@ -1,0 +1,11 @@
+systemmonitoring:
+    monitoring:
+        monitoring1:
+            testinterval: 10000
+            applications:
+                test_bash:
+                    maxmemusage: 35000
+                    maxcpuload: 100
+                firefox:
+                    maxmemusage: 10
+                    maxcpuload: 100
