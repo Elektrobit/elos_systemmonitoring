@@ -25,6 +25,7 @@ static safuResultE_t _pluginLoad(elosPlugin_t *plugin) {
             safuLogErr("Allocating system monitoring failed!");
         } else if ((plugin->config == NULL) || (plugin->config->key == NULL)) {
             safuLogErr("Given configuration is NULL or has .key set to NULL");
+            delete elosSysMonitor;
         } else {
             plugin->data = NULL;
 
@@ -91,7 +92,9 @@ static safuResultE_t _pluginUnload(elosPlugin_t *plugin) {
     } else {
         safuLogDebugF("Unloading Scanner Plugin '%s'", plugin->config->key);
         free(plugin->data);
-        delete elosSysMonitor;
+        if (elosSysMonitor == nullptr) {
+            delete elosSysMonitor;
+        }
         result = elosPluginDeletePublisher(plugin, elosPblisher);
         if (result == SAFU_RESULT_FAILED) {
             safuLogErr("Failed to delete publisher");

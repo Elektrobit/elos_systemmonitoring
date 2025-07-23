@@ -84,7 +84,7 @@ void SystemMonitoring::addMonitoringUnits() {
         systemMonitoringThresholds.memThreshold3, systemMonitoringThresholds.cpuThreshold1,
         systemMonitoringThresholds.cpuThreshold2, systemMonitoringThresholds.cpuThreshold3};
     for (YAML::const_iterator iterator = monitoringData.begin(); iterator != monitoringData.end(); ++iterator) {
-        std::string monitoringUnitKey = iterator->first.as<std::string>();
+        const auto monitoringUnitKey = iterator->first.as<std::string>();
         YAML::Node monitoringUnitData = monitoringData[monitoringUnitKey];
         unsigned int monitoringUnitTestInterval;
         std::vector<float> thresholds = defaultMonitoringUnitThresholds;

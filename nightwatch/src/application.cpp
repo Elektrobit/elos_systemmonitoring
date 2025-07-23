@@ -7,6 +7,7 @@
 #include <safu/log.h>
 #include <unistd.h>
 
+#include <array>
 #include <chrono>
 #include <fstream>
 #include <memory>
@@ -26,7 +27,7 @@ Application::Application(elosPlugin_t *plugin, elosPublisher *publisher, std::st
 std::string Application::execCmd(const char *cmd) {
     std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
     if (!pipe) {
-        safuLogErr("popen() failed!");
+        safuLogErrErrno("popen() failed!");
         return "";
     }
 
