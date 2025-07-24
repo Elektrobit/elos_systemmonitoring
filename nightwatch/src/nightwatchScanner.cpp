@@ -92,7 +92,7 @@ static safuResultE_t _pluginUnload(elosPlugin_t *plugin) {
     } else {
         safuLogDebugF("Unloading Scanner Plugin '%s'", plugin->config->key);
         free(plugin->data);
-        if (elosSysMonitor == nullptr) {
+        if (elosSysMonitor != nullptr) {
             delete elosSysMonitor;
         }
         result = elosPluginDeletePublisher(plugin, elosPblisher);
