@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
+
+CFG_FILE=$(CURDIR)/debian/tmp/etc/elos/nightwatch/config.yaml
+
+%:
+	dh $@ --buildsystem=cmake --builddirectory=debian/build
+
+override_dh_auto_install:
+	dh_auto_install
+
+override_dh_clean:
+	dh_clean
+	rm -rf $(CURDIR)/doc/html
