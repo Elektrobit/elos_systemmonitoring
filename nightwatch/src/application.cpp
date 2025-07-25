@@ -2,6 +2,7 @@
 
 #include "application.h"
 
+#include <cstdio>
 #include <elos/event/event.h>
 #include <safu/common.h>
 #include <safu/log.h>
@@ -29,7 +30,8 @@ Application::Application(elosPlugin_t *plugin, elosPublisher *publisher, std::st
       maxCPULoad{maxCpuLoad} {}
 
 std::string Application::execCmd(const char *cmd) {
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+    auto pipeCloser = [] (FILE* fp) { return fp == NULL ? pclose(fp) : 0; };
+    std::unique_ptr<FILE, decltype(pipeCloser) > pipe(popen(cmd, "r"), pipeCloser);
     if (!pipe) {
         safuLogErrErrno("popen() failed!");
         return "";
