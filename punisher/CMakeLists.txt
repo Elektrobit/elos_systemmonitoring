@@ -9,7 +9,6 @@ project(
   DESCRIPTION "A memory & CPU event handling client plugin for elos"
   LANGUAGES CXX
 )
-set(CMAKE_INSTALL_FULL_LIBDIR /usr/local/lib)
 set(ELOSD_CLIENT_PATH ${CMAKE_INSTALL_FULL_LIBDIR}/elos/client)
 
 find_package(libelosplugin 1.1.1 REQUIRED)

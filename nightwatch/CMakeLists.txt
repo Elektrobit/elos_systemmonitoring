@@ -9,7 +9,6 @@ project(
   DESCRIPTION "A memory & CPU monitoring scanner plugin for elos"
   LANGUAGES CXX
 )
-set(CMAKE_INSTALL_FULL_LIBDIR /usr/local/lib)
 set(ELOSD_SCANNER_PATH ${CMAKE_INSTALL_FULL_LIBDIR}/elos/scanner)
 
 find_package(libelosplugin 1.1.1 REQUIRED)
@@ -48,6 +47,6 @@ target_compile_definitions(scanner_nightwatch PRIVATE SAFU_LOG=1)
 target_compile_options(scanner_nightwatch PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
 install(TARGETS scanner_nightwatch DESTINATION ${ELOSD_SCANNER_PATH})
-install(FILES ./config/config.yaml DESTINATION /etc/elos/nightwatch)
+install(FILES ./config/config.yaml DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR}/elos/nightwatch)
 
 add_subdirectory(tests)

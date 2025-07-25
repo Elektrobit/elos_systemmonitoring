@@ -8,5 +8,7 @@ project(
   LANGUAGES CXX
 )
 
+include(GNUInstallDirs)
+
 add_subdirectory(nightwatch)
 add_subdirectory(punisher)
