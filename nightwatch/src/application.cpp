@@ -12,6 +12,10 @@
 #include <fstream>
 #include <memory>
 
+#ifndef ELOS_MSG_CODE_RESOURCE_OVERLOAD
+#define ELOS_MSG_CODE_RESOURCE_OVERLOAD (elosEventMessageCodeE_t)5021
+#endif
+
 Application::Application(elosPlugin_t *plugin, elosPublisher *publisher, std::string name, elosThresholds thresholds,
                          unsigned long maxMemUsage, double maxCpuLoad)
     : elosPlugin{plugin},

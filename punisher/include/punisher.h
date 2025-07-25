@@ -7,6 +7,10 @@
 
 #include <thread>
 
+#ifndef ELOS_MSG_CODE_RESOURCE_OVERLOAD
+#define ELOS_MSG_CODE_RESOURCE_OVERLOAD (elosEventMessageCodeE_t)5021
+#endif
+
 class Punisher {
    private:
     elosPlugin_t *elosPlugin;
