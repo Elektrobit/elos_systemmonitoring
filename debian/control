@@ -1,0 +1,42 @@
+Source: elos-systemmonitoring
+Section: admin
+Priority: optional
+Maintainer: Simone Weiss <Simone.Weiss@elektrobit.com>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13),
+ libelos-dev,
+ libelosplugin-dev,
+ libgtest-dev,
+ libsafu-dev,
+ libsamconf-dev,
+ libyaml-cpp-dev
+Rules-Requires-Root: no
+Standards-Version: 4.6.0.1
+Homepage: https://github.com/Elektrobit/elos_systemmonitoring
+Vcs-Browser: https://github.com/Elektrobit/elos_systemmonitoring
+Vcs-Git: https://github.com/Elektrobit/elos_systemmonitoring
+
+Package: elos-plugin-scanner-nightwatch
+Section: libs
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Elos plugin to monitor the load of applications
+ Elos plugin to monitor the load of applications and create an events if limit
+ is exceeded.
+ .
+ The nigthwatch system load scanner plugin.
+
+Package: elos-plugin-client-punisher
+Section: libs
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Elos plugin to kill processes on certain events.
+ Elos plugin to kill processes which exceeded their resource limits, on
+ receiving the corresponding event from nigthwatch.
+ .
+ The punisher client plugin to kill misbehaving processes.

@@ -1,0 +1,2 @@
+version=4
+https://github.com/Elektrobit/elos_systemmonitoring/tags .*/v(\d+).(\d+).(\d+).tar.gz
