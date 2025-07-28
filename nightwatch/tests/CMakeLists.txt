@@ -27,6 +27,11 @@ target_link_libraries(nightwatch_unit_tests
     elos::libelos
     samconf::samconf
     safu::safu
-    yaml-cpp::yaml-cpp
 )
 
+if (YAML-CPP_VERSION VERSION_LESS "0.8.0")
+  target_include_directories( nightwatch_unit_tests PRIVATE ${YAML_CPP_INCLUDE_DIR})
+  target_link_libraries( nightwatch_unit_tests PRIVATE ${YAML_CPP_LIBRARIES})
+else()
+  target_link_libraries( nightwatch_unit_tests PRIVATE yaml-cpp::yaml-cpp)
+endif()
