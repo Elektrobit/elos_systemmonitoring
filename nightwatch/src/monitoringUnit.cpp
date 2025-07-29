@@ -30,8 +30,8 @@ void MonitoringUnit::addApps(YAML::Node appsData, elosPlugin_t *plugin, elosPubl
     for (YAML::const_iterator iterator = appsData.begin(); iterator != appsData.end(); ++iterator) {
         std::string appKey = iterator->first.as<std::string>();
         YAML::Node appData = appsData[appKey];
-        unsigned long maxMemUsage;
-        double maxCpuLoad;
+        unsigned long maxMemUsage = 0;
+        double maxCpuLoad = 0;
         std::vector<float> thresholds = defaultAppThresholds;
         if (appData[configKeys.maxmemusage]) {
             maxMemUsage = appData[configKeys.maxmemusage].as<unsigned long>();
