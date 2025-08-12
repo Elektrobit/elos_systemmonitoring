@@ -1,3 +1,9 @@
+elos-systemmonitoring (0.1.0-1) unstable; urgency=medium
+
+  * New upstream tag 0.1.0
+
+ -- Wolfgang Gehrhardt <wolfgang.gehrhardt@emlix.com>  Tue, 12 Aug 2025 09:11:54 +0000
+
 elos-systemmonitoring (0.0.0) unstable; urgency=medium
 
   * Dummy Release
